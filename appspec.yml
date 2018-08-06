@@ -1,0 +1,20 @@
+version: 0.0
+os: windows
+files:
+  - source: \appsettings.json
+    destination: C:\inetpub\wwwroot
+  - source: \TodoApi.deps.json
+    destination: C:\inetpub\wwwroot
+  - source: \TodoApi.dll
+    destination: C:\inetpub\wwwroot
+  - source: \TodoApi.runtimeconfig.json
+    destination: C:\inetpub\wwwroot
+  - source: \web.config
+    destination: C:\inetpub\wwwroot
+hooks:
+  BeforeInstall:
+    - location: \before-install.ps1
+      timeout: 1500
+  AfterInstall:
+    - location: \after-install.ps1
+      timeout: 1500

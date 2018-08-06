@@ -1,0 +1,14 @@
+version: 0.2
+
+phases:
+  build:
+    commands:
+      - dotnet restore
+      - dotnet publish -c release -o deploy-package
+      - copy appspec.yml deploy-package/appspec.yml
+      - copy before-install.ps1 deploy-package/before-install.ps1
+      - copy after-install.ps1 deploy-package/after-install.ps1
+artifacts:
+  files:
+    - deploy-package/*
+  discard-paths: yes
