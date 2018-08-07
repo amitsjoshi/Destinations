@@ -3,11 +3,11 @@ os: windows
 files:
   - source: \appsettings.json
     destination: C:\inetpub\wwwroot
-  - source: \TodoApi.deps.json
+  - source: \Destinations.deps.json
     destination: C:\inetpub\wwwroot
-  - source: \TodoApi.dll
+  - source: \Destinations.dll
     destination: C:\inetpub\wwwroot
-  - source: \TodoApi.runtimeconfig.json
+  - source: \Destinations.runtimeconfig.json
     destination: C:\inetpub\wwwroot
   - source: \web.config
     destination: C:\inetpub\wwwroot
