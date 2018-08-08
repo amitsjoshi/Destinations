@@ -8,6 +8,7 @@ phases:
       - copy appspec.yml deploy-package/appspec.yml
       - copy before-install.ps1 deploy-package/before-install.ps1
       - copy after-install.ps1 deploy-package/after-install.ps1
+      - copy appsettings.yml deploy-package/appsettings.yml
 artifacts:
   files:
     - deploy-package/*
