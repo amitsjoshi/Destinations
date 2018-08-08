@@ -11,5 +11,5 @@ phases:
       - copy appsettings.yml deploy-package/appsettings.yml
 artifacts:
   files:
-    - deploy-package/*
-  discard-paths: yes
+    - '**/*'
+  base-directory: deploy-package
