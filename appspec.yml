@@ -1,15 +1,7 @@
 version: 0.0
 os: windows
 files:
-  - source: \appsettings.json
-    destination: C:\inetpub\wwwroot
-  - source: \Destinations.deps.json
-    destination: C:\inetpub\wwwroot
-  - source: \Destinations.dll
-    destination: C:\inetpub\wwwroot
-  - source: \Destinations.runtimeconfig.json
-    destination: C:\inetpub\wwwroot
-  - source: \web.config
+  - source: \
     destination: C:\inetpub\wwwroot
 hooks:
   BeforeInstall:
