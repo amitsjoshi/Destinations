@@ -64,8 +64,18 @@ namespace Destinations.Controllers
 
         public IActionResult ShowGrid()
         {
+            /*ShowGrid mShowGrid = new ShowGrid();
+            mShowGrid.PageNumber = (pageNumber == null ? 1 : Convert.ToInt32(pageNumber));
+            mShowGrid.PageSize = 4;*/
+            List<ShowGrid> mShowGrid = new List<ShowGrid>();
+            List<String[]> DataList = GetData();
+            foreach(var item in DataList)
+            {
 
-            return View();
+                mShowGrid.Add(new ShowGrid(item[0].ToString(), item[1].ToString(), item[2].ToString()));
+            }
+
+            return View(mShowGrid);
         }
         
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
@@ -73,5 +83,20 @@ namespace Destinations.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+        public static List<String[]> GetData()
+        {
+            List<String[]> fileContent = new List<string[]>();
+            System.IO.StreamReader file = new System.IO.StreamReader("./Data/Data.txt");
+            String line;
+            while((line = file.ReadLine())!= null)
+            {
+                String[] splitline = line.ToString().Split('|');
+                fileContent.Add(splitline);
+            }
+            file.Close();
+            return fileContent;
+        }
+
+
     }
 }
